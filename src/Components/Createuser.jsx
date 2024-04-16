@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+require('dotenv').config();
 
 const Createuser = () => {
+  const BASE_URL = process.env.BASE_URL
   const [File, setFile] = useState("");
   const [imgTF, setimgTF] = useState(false);
   const [Location, setLocation] = useState("");
@@ -51,7 +53,7 @@ const Createuser = () => {
         formData.append("img", File); // image file
         formData.append("location", Location);
 
-        const response = await fetch("http://localhost:5000/api/newuser/upload", {
+        const response = await fetch(`${BASE_URL}/api/newuser/upload`, {
           method: "POST",
           body: formData,
         });

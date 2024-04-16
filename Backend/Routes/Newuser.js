@@ -18,16 +18,12 @@ router.post('/newuser',  [
     }
 
     try {
-        // const imgPath = req.file.path; // Temporary path of uploaded image
-        // const imgURL = `/uploads/${req.file.filename}`; // URL to access uploaded image
 
         await User.create({
             name: req.body.name,
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            // img: imgURL, // Save image URL
-            // location: req.body.location
         });
 
         res.json({ success: true });
@@ -48,8 +44,8 @@ router.post('/newuser/upload', upload.single('img'), [
     const { username } = req.body; // Extracting username from the request body
 
     try {
-        const imgPath = req.file.path; // Temporary path of uploaded image
-        const imgURL = `/uploads/${req.file.filename}`; // URL to access uploaded image
+        const imgPath = req.file.path; 
+        const imgURL = `/uploads/${req.file.filename}`; 
 
         // Updating user with the provided username
         await User.updateOne({ username: username }, {
