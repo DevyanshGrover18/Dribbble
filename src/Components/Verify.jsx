@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-require('dotenv').config();
+import 'dotenv/config'
 
 
 

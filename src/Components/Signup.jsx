@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-require('dotenv').config();
+import 'dotenv/config'
 
 const Signup = () => {
   const BASE_URL = process.env.BASE_URL
