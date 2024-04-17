@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  dotenv.config()
   const [Check, setCheck] = useState(false);
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
