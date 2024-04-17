@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import 'dotenv/config'
 
 
 
 const Verify = () => {
-  const BASE_URL = process.env.BASE_URL
   const [username, setUsername] = useState("");
   const [usersData, setUsersData] = useState({});
 
@@ -29,7 +27,7 @@ const Verify = () => {
         
         console.log("Sending email with data:", emailData);
         
-        const response = await fetch(`${BASE_URL}/send-email`, {
+        const response = await fetch(`http://localhost:5000/send-email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -60,7 +58,7 @@ useEffect(() => {
   const fetchUserData = async (username) => {
     try {
       // Fetch user data using the username parameter
-      const response = await fetch(`${BASE_URL}/api/verify/${username}`);
+      const response = await fetch(`http://localhost:5000/api/verify/${username}`);
         
       if (response.ok) {
         const userData = await response.json();

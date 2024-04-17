@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import 'dotenv/config'
 
 const Signup = () => {
-  const BASE_URL = process.env.BASE_URL
+  dotenv.config()
   const [Check, setCheck] = useState(false);
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
@@ -20,7 +19,7 @@ const Signup = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/api/newuser`, {
+      const response = await fetch(`http://localhost:5000/api/newuser`, {
         method: "POST",
         body: JSON.stringify(credentials),
         headers: {
